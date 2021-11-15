@@ -23,16 +23,30 @@ class ConditionsViewController: UIViewController {
     @Published private var acceptedConditions = false
     @Published private var signed = ""
     
-    // Define a publisher that combines the above three publishers into one
+    var userName = "Jeff"
+    
+    var validSignature: AnyPublisher<Bool, Never> {
+        $signed
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .removeDuplicates()
+            .flatMap { [weak self] name in
+                Future { promise in
+                    promise(.success(name == self?.userName))
+                }
+            }
+            .eraseToAnyPublisher()
+    }
+        
+    // Define a publisher that combines three publishers into one
     private var validToSubmit: AnyPublisher<Bool, Never> {
-        Publishers.CombineLatest3($acceptedTerms, $acceptedConditions, $signed)
-            .map { terms, conditions, signed in
-                return terms && conditions && !signed.isEmpty
+        Publishers.CombineLatest3($acceptedTerms, $acceptedConditions, validSignature)
+            .map { terms, conditions, signature in
+                return terms && conditions && signature
             }
             .eraseToAnyPublisher()
     }
     
-    private var observers = Set<AnyCancellable>()
+    private var subscribers = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +54,7 @@ class ConditionsViewController: UIViewController {
         validToSubmit
             .receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: submitButton)
-            .store(in: &observers)
+            .store(in: &subscribers)
     }
 
     @IBAction func acceptTerms(_ sender: UISwitch) {

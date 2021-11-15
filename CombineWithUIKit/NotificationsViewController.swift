@@ -26,13 +26,14 @@ class NotificationsViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     
     @Published var canSendMessage = true
-    private var switchSubscriber: AnyCancellable?
+    private var subscribers = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switchSubscriber = $canSendMessage.receive(on: DispatchQueue.main)
+        $canSendMessage.receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: sendButton)
+            .store(in: &subscribers)
         
         let messagePublisher = NotificationCenter.Publisher(center: .default, name: .message)
             .map { Notification -> String? in
