@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		1F25C1E42741BFBA00E809ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F25C1E32741BFBA00E809ED /* AppDelegate.swift */; };
 		1F25C1E62741BFBA00E809ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F25C1E52741BFBA00E809ED /* SceneDelegate.swift */; };
-		1F25C1E82741BFBA00E809ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F25C1E72741BFBA00E809ED /* ViewController.swift */; };
+		1F25C1E82741BFBA00E809ED /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F25C1E72741BFBA00E809ED /* NotificationsViewController.swift */; };
 		1F25C1EB2741BFBA00E809ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F25C1E92741BFBA00E809ED /* Main.storyboard */; };
 		1F25C1ED2741BFBB00E809ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F25C1EC2741BFBB00E809ED /* Assets.xcassets */; };
 		1F25C1F02741BFBB00E809ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F25C1EE2741BFBB00E809ED /* LaunchScreen.storyboard */; };
+		1F25C1F82741D23400E809ED /* ConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F25C1F72741D23400E809ED /* ConditionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F25C1E02741BFBA00E809ED /* CombineWithUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineWithUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F25C1E32741BFBA00E809ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F25C1E52741BFBA00E809ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1F25C1E72741BFBA00E809ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F25C1E72741BFBA00E809ED /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		1F25C1EA2741BFBA00E809ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F25C1EC2741BFBB00E809ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F25C1EF2741BFBB00E809ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F25C1F12741BFBB00E809ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F25C1F72741D23400E809ED /* ConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 			children = (
 				1F25C1E32741BFBA00E809ED /* AppDelegate.swift */,
 				1F25C1E52741BFBA00E809ED /* SceneDelegate.swift */,
-				1F25C1E72741BFBA00E809ED /* ViewController.swift */,
+				1F25C1E72741BFBA00E809ED /* NotificationsViewController.swift */,
+				1F25C1F72741D23400E809ED /* ConditionsViewController.swift */,
 				1F25C1E92741BFBA00E809ED /* Main.storyboard */,
 				1F25C1EC2741BFBB00E809ED /* Assets.xcassets */,
 				1F25C1EE2741BFBB00E809ED /* LaunchScreen.storyboard */,
@@ -138,8 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F25C1E82741BFBA00E809ED /* ViewController.swift in Sources */,
+				1F25C1E82741BFBA00E809ED /* NotificationsViewController.swift in Sources */,
 				1F25C1E42741BFBA00E809ED /* AppDelegate.swift in Sources */,
+				1F25C1F82741D23400E809ED /* ConditionsViewController.swift in Sources */,
 				1F25C1E62741BFBA00E809ED /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

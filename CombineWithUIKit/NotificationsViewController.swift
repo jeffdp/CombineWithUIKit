@@ -5,6 +5,9 @@
 //  Created by Jeffrey Porter on 11/14/21.
 //
 
+// Based on 'Combine Framework - A Practical Introduction with UIKit'
+//   https://www.youtube.com/watch?v=RysM_XPNMTw&t=518s
+
 import UIKit
 import Combine
 
@@ -17,7 +20,7 @@ struct Message {
     let author: String
 }
 
-class ViewController: UIViewController {
+class NotificationsViewController: UIViewController {
     @IBOutlet weak var allowMessagesSwitch: UISwitch!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
@@ -27,12 +30,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        setupProcessing()
-    }
-
-    func setupProcessing() {
         switchSubscriber = $canSendMessage.receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: sendButton)
         
@@ -41,10 +39,12 @@ class ViewController: UIViewController {
                 (Notification.object as? Message)?.content
             }
         
-        let messageSubscriber = Subscribers.Assign(object: messageLabel, keyPath: \.text)
+        let messageSubscriber = Subscribers
+            .Assign(object: messageLabel, keyPath: \.text)
+        
         messagePublisher.subscribe(messageSubscriber)
     }
-    
+
     @IBAction func didSwitch(_ sender: UISwitch) {
         canSendMessage = sender.isOn
     }
