@@ -14,6 +14,7 @@
 		1F25C1ED2741BFBB00E809ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F25C1EC2741BFBB00E809ED /* Assets.xcassets */; };
 		1F25C1F02741BFBB00E809ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F25C1EE2741BFBB00E809ED /* LaunchScreen.storyboard */; };
 		1F25C1F82741D23400E809ED /* ConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F25C1F72741D23400E809ED /* ConditionsViewController.swift */; };
+		1F25C1FA2742FA5000E809ED /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F25C1F92742FA5000E809ED /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1F25C1EF2741BFBB00E809ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F25C1F12741BFBB00E809ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F25C1F72741D23400E809ED /* ConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsViewController.swift; sourceTree = "<group>"; };
+		1F25C1F92742FA5000E809ED /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				1F25C1E52741BFBA00E809ED /* SceneDelegate.swift */,
 				1F25C1E72741BFBA00E809ED /* NotificationsViewController.swift */,
 				1F25C1F72741D23400E809ED /* ConditionsViewController.swift */,
+				1F25C1F92742FA5000E809ED /* TableViewController.swift */,
 				1F25C1E92741BFBA00E809ED /* Main.storyboard */,
 				1F25C1EC2741BFBB00E809ED /* Assets.xcassets */,
 				1F25C1EE2741BFBB00E809ED /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				1F25C1E82741BFBA00E809ED /* NotificationsViewController.swift in Sources */,
 				1F25C1E42741BFBA00E809ED /* AppDelegate.swift in Sources */,
 				1F25C1F82741D23400E809ED /* ConditionsViewController.swift in Sources */,
+				1F25C1FA2742FA5000E809ED /* TableViewController.swift in Sources */,
 				1F25C1E62741BFBA00E809ED /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
