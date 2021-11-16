@@ -11,11 +11,19 @@ import Combine
 class TableViewController: UITableViewController {
     let itemAdded = PassthroughSubject<Date, Never>()
 
-    private var times: [Date] = []
+    @Published private var times: [Date] = []
     private var subscriptions = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Reload the table view if the data changes.
+        $times
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &subscriptions)
         
         // Observer itemAdded for new times to add to the table.
         itemAdded
@@ -23,7 +31,6 @@ class TableViewController: UITableViewController {
             .sink(receiveCompletion: { _ in },
                   receiveValue: { [weak self] (newTime: Date) in
                 self?.times.append(newTime)
-                self?.tableView.reloadData()
             })
             .store(in: &subscriptions)
     }
