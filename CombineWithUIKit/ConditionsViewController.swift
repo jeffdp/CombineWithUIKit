@@ -27,10 +27,12 @@ class ConditionsViewController: UIViewController {
     
     var validSignature: AnyPublisher<Bool, Never> {
         $signed
-            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .throttle(for: 0.5, scheduler: DispatchQueue.main, latest: true)
             .removeDuplicates()
             .flatMap { [weak self] name in
                 Future { promise in
+                    // We're immediately calling this, but it could be called from
+                    // an asynchronous API.
                     promise(.success(name == self?.userName))
                 }
             }

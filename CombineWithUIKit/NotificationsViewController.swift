@@ -31,19 +31,17 @@ class NotificationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        $canSendMessage.receive(on: DispatchQueue.main)
+        $canSendMessage
+            .receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: sendButton)
             .store(in: &subscribers)
         
-        let messagePublisher = NotificationCenter.Publisher(center: .default, name: .message)
+        NotificationCenter.Publisher(center: .default, name: .message)
+            .receive(on: DispatchQueue.main)
             .map { Notification -> String? in
                 (Notification.object as? Message)?.content
             }
-        
-        let messageSubscriber = Subscribers
-            .Assign(object: messageLabel, keyPath: \.text)
-        
-        messagePublisher.subscribe(messageSubscriber)
+            .subscribe(Subscribers.Assign(object: messageLabel, keyPath: \.text))
     }
 
     @IBAction func didSwitch(_ sender: UISwitch) {
